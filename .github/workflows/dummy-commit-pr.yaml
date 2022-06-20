@@ -17,4 +17,4 @@ jobs:
     - name: "Push the changes"
       run: |
         git commit --allow-empty -m "Trigger Preview"
-        git push 
+        git push origin ${{ github.ref }} 
