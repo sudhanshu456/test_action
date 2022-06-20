@@ -12,10 +12,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-    - name: "Configure git"
-      run: |
-        git config user.name 'Sudhanshu Prajapati'
-        git config user.email 'spsupraj2d@gmail.com'
     - name: "Push the changes"
       run: |
         git commit --allow-empty -m "Trigger Preview"
