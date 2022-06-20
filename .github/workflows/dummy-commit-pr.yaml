@@ -3,8 +3,7 @@ on:
   pull_request:
     branches:
       - 'main'
-    pull_request:
-    types: [opened]
+    
 
 jobs:
   dummy-commit:
