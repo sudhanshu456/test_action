@@ -1,0 +1,22 @@
+name: "Dummy Commit"
+on:
+  push:
+    branches-ignore:    
+      - 'main'
+  pull_request:
+    branches-ignore:    
+      - 'main'
+
+jobs:
+  dummy-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "Configure git"
+      run: |
+        git config user.name 'Sudhanshu Prajapati'
+        git config user.email 'spsupraj2d@gmail.com'
+    - name: "Push the changes"
+      run: |
+        git commit --allow-empty -m "Trigger Preview"
+        git push origin ${{ github.ref }}
