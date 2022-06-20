@@ -6,6 +6,8 @@ on:
   pull_request:
     branches:
       - 'main'
+    pull_request:
+    types: [opened]
 
 jobs:
   dummy-commit:
@@ -19,4 +21,4 @@ jobs:
     - name: "Push the changes"
       run: |
         git commit --allow-empty -m "Trigger Preview"
-        git push origin ${{ github.ref }}
+        git push 
