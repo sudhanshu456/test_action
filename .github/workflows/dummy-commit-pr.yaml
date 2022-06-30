@@ -8,7 +8,7 @@ on:
 jobs:
   dummy-commit:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'sudhanshu456' }}
+    if: ${{ github.actor == 'sudhanshu456' }}
     steps:
     - uses: actions/checkout@v2
       with:
