@@ -8,7 +8,7 @@ on:
 jobs:
   dummy-commit:
     runs-on: ubuntu-latest
-    if: ${{ contains(fromJson('["sudhanshu456", "synchronize"]'), github.actor) }}
+    if: ${{ !contains(fromJson('["sudhanshu456", "synchronize"]'), github.actor) }}
     steps:
     - uses: actions/checkout@v2
       with:
