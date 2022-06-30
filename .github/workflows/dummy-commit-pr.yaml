@@ -19,7 +19,7 @@ jobs:
     - name: "Push the changes"
       run: |
         ID=$(git log -1 --pretty=format:'%ae' | xargs)
-        if [ "$ID" = chetanpdeshmukh@users.noreply.github.com ]; then
+        if [ "$ID" = chetanpdeshmukh@users.noreply.github.com ] || [ "$ID" = spsupraj2d@gmail.com ]; then
           echo "Not Commit."
           echo "Author ID: $ID"
         else 
