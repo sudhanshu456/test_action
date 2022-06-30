@@ -18,5 +18,14 @@ jobs:
         git config user.email 'spsupraj2d@gmail.com'
     - name: "Push the changes"
       run: |
-        git commit --allow-empty -m "Trigger Preview"
-        git push 
+        ID=$(git log -1 --pretty=format:'%ae' | xargs)
+        if [ "$ID" = spsupraj2d@gmail.com ] || [ "$ID" = something ]; then
+          echo "Push Dummy commit!"
+          echo "Author ID: $ID"
+          git commit --allow-empty -m "Trigger Preview"
+          git push 
+        else 
+          echo "Not Commit."
+          echo "Author ID: $ID"
+        fi
+        
