@@ -8,26 +8,17 @@ on:
 jobs:
   dummy-commit:
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'sudhanshu456' }}
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-    - name: Dump GitHub context
-      run: echo '${{ toJSON(github) }}'
     - name: "Configure git"
       run: |
         git config user.name 'Sudhanshu Prajapati'
         git config user.email 'spsupraj2d@gmail.com'
     - name: "Push the changes"
       run: |
-        ID=$(git log -1 --pretty=format:'%ae' | xargs)
-        if [ "$ID" = chetanpdeshmukh@users.noreply.github.com ] || [ "$ID" = spsupraj2d@gmail.com ]; then
-          echo "Not Commit."
-          echo "Author ID: $ID"
-        else 
-          echo "Push Dummy commit!"
-          echo "Author ID: $ID"
           git commit --allow-empty -m "Trigger Preview"
           git push 
-        fi
         
