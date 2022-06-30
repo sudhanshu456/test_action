@@ -20,12 +20,12 @@ jobs:
       run: |
         ID=$(git log -1 --pretty=format:'%ae' | xargs)
         if [ "$ID" = spsupraj2d@gmail.com ] || [ "$ID" = something ]; then
+          echo "Not Commit."
+          echo "Author ID: $ID"
+        else 
           echo "Push Dummy commit!"
           echo "Author ID: $ID"
           git commit --allow-empty -m "Trigger Preview"
           git push 
-        else 
-          echo "Not Commit."
-          echo "Author ID: $ID"
         fi
         
